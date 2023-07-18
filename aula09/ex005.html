@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com DOM</title>
+    <style>
+        body{
+            background-color: rgb(32, 106, 166);
+            color: white;
+            font: normal 18pt arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a isar o <strong>DOM</strong> em JavaScript.</p>
+    <div id="msg">Clique em mim</div>
+    <!-- <div name="msg">Clique em mim</div> -->
+    <!-- <div class="msg">Clique em mim</div> -->
+    <script>
+        // // selecionando por marca - não precisa colocar o window, dentro da aspas simples quem eu vou selecionar, dentro dos colchetes se eu não quiser selecionar todos
+        // var corpo = window.document.body
+        // var p1 = window.document.getElementsByTagName('p')[0]
+        // var p2 = window.document.getElementsByTagName('p')[1]
+        // window.document.write('Está escrito assim: '+ p1.innerText) //inner text: texto dentro
+        // window.document.write(p2.innerHTML)
+        // p1.style.color = 'pink'
+        // corpo.style.background = 'black'
+
+        // // Por id
+        // var d = window.document.getElementById('msg')
+        // d.style.background = 'green'
+        // d.innerText = 'Estou aguardando... '
+
+
+        // //Por name
+        // var d = window.document.getElementsByName('msg')[0]
+        // d.innerText = 'Olá!'
+
+        // //Por classe
+        // var d = window.document.getElementsByClassName('msg')[0]
+        // d.innerHTML = 'Olá'
+
+        //Por seletor
+        var d = window.document.querySelector('div#msg')
+        d.style.color = 'red'
+    </script>
+</body>
+</html>
