@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+</head>
+<body>
+    <h1>Situação do aluno</h1>
+    <input type="button" value="Entrar com as notas" onclick="clicou()">
+    <p id="texto">Clique no botão acima para informar as notas do aluno.</p>
+
+    <script>
+        function clicou(){
+            let nome = window.prompt('Qual é o nome do aluno?')
+            let n1 = Number(window.prompt(`Primeira nota de ${nome}:`))
+            let n2 = Number(window.prompt(`Segunda nota de ${nome}:`))
+            let msg = document.getElementById('texto')
+
+            let soma = n1 + n2
+            let media = soma/2
+            msg.innerHTML = `<strong>Analisando a situação de ${nome}</strong><br>`
+            msg.innerHTML += `Com as notas ${n1} e ${n2}, a média é ${media}<br>`
+
+            if(media < 3){
+                msg.innerHTML += `Com a média abaixo de 3,0, o alunos está REPROVADO`
+            } else if(media <= 6){
+                msg.innerHTML += `Com a média entre 3,0 e 6,0, o aluno está em RECUPERAÇÃO`
+            } else{
+                msg.innerHTML += `Com a média acima de 6,0, o aluno está APROVADO`
+            }
+        }
+    </script>
+</body>
+</html>

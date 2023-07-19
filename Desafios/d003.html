@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antes e depois</title>
+</head>
+<body>
+    <h1>Antes e depois</h1>
+    <input type="button" value="Antecessor e Sucessor" onclick="clicou()">
+    <script>
+        function clicou(){
+        let n = Number(window.prompt('Digite um número inteiro qualquer'))
+        window.alert(`Antes de ${n}, temos o número ${n-1}. Depois de ${n}, temos o número ${n+1}.`)
+        }
+    </script>
+</body>
+</html>

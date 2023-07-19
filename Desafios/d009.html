@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajustar salário</title>
+</head>
+<body>
+    <h1>Reajuste salarial</h1>
+    <input type="button" value="Reajustar Salário" onclick="clicou()">
+    <p id="texto">Clique no botão acima para iniciar.</p>
+
+    <script>
+        function clicou(){
+        let nome = window.prompt('Qual é o nome do funcionário?')
+        let sal = Number(window.prompt(`Qual é o salário de ${nome}?`))
+        let porc = Number(window.prompt(`O salário de ${nome} vai ser reajustado em qual porcentagem?`))
+        let msg = document.getElementById('texto')
+
+        let calculo = 1 + porc/100
+        let novo = sal*calculo
+        let acrescimo = novo - sal
+
+        msg.innerHTML = `<strong>${nome} recebeu um aumento salarial!</strong><br>`
+        msg.innerHTML += `O salário atual era de R$ ${sal}.<br>`
+        msg.innerHTML += `Com um saumento de ${porc}%, o salário vai aumentar R$ ${acrescimo} no próximo mês.<br>`
+        msg.innerHTML += `E a partir daí, ${nome} vai passar a ganhar R$ ${novo}.`
+        }
+    </script>
+</body>
+</html>

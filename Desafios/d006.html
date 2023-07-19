@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperaturas</title>
+</head>
+<body>
+    <h1>Conversor de temperaturas</h1>
+    <input type="button" value="Converter" onclick="clicou()">
+    <p id="texto">Clicle no botão acima para iniciar.</p>
+
+    <script>
+        function clicou(){
+        let tcel = Number(window.prompt('Digite uma temperatura em ºC(Clesius)'))
+        let msg = document.getElementById('texto')
+        msg.innerHTML = `<strong>A temperatura de ${tcel}, corresponde a...</strong><br>`
+        let tkel = tcel + 273.15
+        let tfar = tcel*1.8 + 32
+        msg.innerHTML += `${tkel}ºK (Kelvin)<br>`
+        msg.innerHTML += `${tfar}ºF Fahrenheit`
+        }
+    </script>
+</body>
+</html>

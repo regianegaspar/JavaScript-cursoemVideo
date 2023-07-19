@@ -20,3 +20,24 @@ h2{
     background-image: linear-gradient(to left, rgba(105, 133, 226, 0.206), rgba(105, 133, 226, 0.936));
     padding: 5px;
 }
+#descricao a{
+    border: none;
+    background-color: transparent;
+}
+li{
+    list-style: none;
+    margin: 16px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    padding: 6px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgba(105, 133, 226, 0.247);
+}
+a:hover, #descricao a:hover{
+    background-color: rgb(172, 255, 255);
+    border-radius: 15px;
+}

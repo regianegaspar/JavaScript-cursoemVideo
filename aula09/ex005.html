@@ -15,9 +15,9 @@
 <body>
     <h1>Iniciando estudos com DOM</h1>
     <p>Aqui vai o resultado</p>
-    <p>Aprendendo a isar o <strong>DOM</strong> em JavaScript.</p>
-    <div id="msg">Clique em mim</div>
-    <!-- <div name="msg">Clique em mim</div> -->
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <!-- <div id="msg">Clique em mim</div> -->
+    <div name="msg">Clique em mim</div>
     <!-- <div class="msg">Clique em mim</div> -->
     <script>
         // // selecionando por marca - não precisa colocar o window, dentro da aspas simples quem eu vou selecionar, dentro dos colchetes se eu não quiser selecionar todos
@@ -29,23 +29,23 @@
         // p1.style.color = 'pink'
         // corpo.style.background = 'black'
 
-        // // Por id
+        // Por id
         // var d = window.document.getElementById('msg')
         // d.style.background = 'green'
         // d.innerText = 'Estou aguardando... '
 
 
-        // //Por name
-        // var d = window.document.getElementsByName('msg')[0]
-        // d.innerText = 'Olá!'
+        //Por name
+        var d = window.document.getElementsByName('msg')[0]
+        d.innerText = 'Olá!'
 
         // //Por classe
         // var d = window.document.getElementsByClassName('msg')[0]
         // d.innerHTML = 'Olá'
 
         //Por seletor
-        var d = window.document.querySelector('div#msg')
-        d.style.color = 'red'
+        // var d = window.document.querySelector('div#msg')
+        // d.style.color = 'red'
     </script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> US$</title>
+</head>
+<body>
+    <h1>Conversor R$ -> US$</h1>
+    <input type="button" value="Converter" onclick="clicou()">
+    <p id="texto">Clique no botão acima para iniciar</p>
+
+    <script>
+        function clicou(){
+            let real = Number(window.prompt('Quantos R$ você tem na carteira?'))
+            let msg = document.getElementById('texto')
+            let dolar = real*4.81
+            msg.innerHTML = `Você tem o equivalente a US$ ${dolar}.`
+
+        }
+    </script>
+</body>
+</html>

@@ -1,19 +1,28 @@
-var inicio = document.getElementById('nini')
-var fim = document.getElementById('nfim')
-var passo = document.getElementById('npas')
-var msgnum = document.getElementById('numeros')
+function contar(){
+    let ini = document.getElementById('txti')
+    let fim = document.getElementById('txtf')
+    let passo = document.getElementById('txtp')
+    let res = document.getElementById('res')
+    let a = ini.value.length
+    let b = fim.value.length
+    let c = passo.value.length
 
-
-var fi = Number(fim.value)
-var pas = Number(passo.value)
-
-// for(var ini = Number(inicio.value); ini <= fi; ini = ini + pas){
-//     console.log(`n: ${ini}`)
-// }
-
-var j = 2
-for(var i = 0; i <= 10; i + j){
-    console.log()
+    if(a == 0 || b == 0 || c == 0){
+        window.alert('Faltam dados!')
+    } else{
+         res.innerHTML = 'Contando: '
+         let i = Number(ini.value)
+         let f = Number(fim.value)
+         let p = Number(passo.value)
+         if(i < f){
+                for(let c = i; c <= f; c += p){
+                res.innerHTML += `${c} \u{1f449}`
+            }
+         } else {
+            for(let c = i; c >= f; c -= p){
+            res.innerHTML += `${c} \u{1f449}`
+            }
+        }
+        res.innerHTML += `\u{1f3c1}` 
+     }
 }
-
-// msgnum.innerHTML = ``

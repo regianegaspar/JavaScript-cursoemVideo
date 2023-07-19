@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <input type="button" value="Verificar" onclick="clicou()">
+    <p id="texto">Clique no botão acima para analisar a mudança de preço.</p>
+
+    <script>
+        function clicou(){
+            let ini = Number(window.prompt('Qual era o preço anterior do produto?'))
+            let fim = Number(window.prompt('Qual é o preço atual do produto?'))
+            let msg = document.getElementById('texto')
+
+            msg.innerHTML = `<strong>Analisando os valores informados</strong><br>`
+            msg.innerHTML += `O produto custava R$ ${ini} e agora custa R$ ${fim}.<br>`
+            let dif = ini - fim
+            if(dif > 0){
+                msg.innerHTML += `Hoje o produto está mais barato.<br>`
+                msg.innerHTML += `O preço caiu R$ ${dif} em relação ao preço anterior.<br>`
+                let porc = dif*100/ini
+                msg.innerHTML += `Uma variação de ${porc}% pra baixo.`
+            } else if( dif < 0){
+                dif = dif*(-1)
+                msg.innerHTML += `Hoje o produto está mais caro.<br>`
+                msg.innerHTML += `O preço subiu R$ ${dif} em relação ao preço anterior<br>`
+                let porc = dif*100/ini
+                msg.innerHTML += `Uma variação de ${porc}% pra cima.`
+            }
+        }
+    </script>
+</body>
+</html>
