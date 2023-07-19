@@ -8,7 +8,7 @@
 <body>
     <h1>Resolvendo Bhaskara</h1>
     <input type="button" value="Calcular" onclick="clicou()">
-    <p id="texto">Considerando uma equação no formato ax² + bx + c = 0, aperte o botão acima para calcular o valor de delta.</p>
+    <p id="texto">Considerando uma equação no formato ax² + bx + c = 0, aperte o botão acima para calcular o valor de &Delta;.</p>
 
     <script>
         function clicou(){
@@ -19,9 +19,9 @@
 
             msg.innerHTML = `<strong>Resolvendo...</strong><br>`
             msg.innerHTML += `A equação atual é ${a}x² + ${b}x + ${c} = 0<br>`
-            msg.innerHTML += `O cálulo realizado será delta = ${b}² - 4 . ${a} . ${c}<br>`
+            msg.innerHTML += `O cálulo realizado será &Delta; = ${b}² - 4 . ${a} . ${c}<br>`
             let delta = (b*b) - (4*a*c)
-            msg.innerHTML += `O valor calculado foi delta = ${delta}`
+            msg.innerHTML += `O valor calculado foi &Delta; = ${delta}`
         }
     </script>
 </body>
