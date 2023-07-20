@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de desconto</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #calc:hover{
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calcular desconto</h1>
+    <p>Qual é o produto que você está comprando? <input type="text" name="tprod" id="tprod"></p>
+    <p>Qual é o preço do produto? <input type="number" name="tprec" id="tprec"></p>
+    <input type="button" id="calc" value="Calcular" onclick="clicou()">
+    <div id="texto"></div>
+
+    <script>
+        let msg = document.getElementById('texto')
+        let produto = document.getElementById('tprod')
+        let preco = document.getElementById('tprec')
+
+
+        function clicou(){
+            if(produto.value.length == 0 || preco.value.length == 0 || preco.value <= 0){
+                msg.innerHTML = 'Dados inválidos'
+            } else{
+                let pre = Number(preco.value)
+                let desconto = pre * 0.1
+                let patual = pre - desconto
+                pre = pre.toFixed(2)
+                desconto = desconto.toFixed(2)
+                patual = patual.toFixed(2)
+                msg.innerHTML = `Calculando desconto de 10% para ${produto.value}<br>`
+                msg.innerHTML += `O preço original era R$ ${pre}.<br>`
+                msg.innerHTML += `Você acaba de ganhar R$ ${desconto} de desconto.<br>`
+                msg.innerHTML += `No fim, você vai pagar R$ ${patual} no produto ${produto.value}.`
+                produto.value = ''
+                preco.value = ''
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

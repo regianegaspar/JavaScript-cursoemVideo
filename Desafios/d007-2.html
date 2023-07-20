@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ -> US$</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #convert:hover{
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de R$ para US$</h1>
+    <p>Quantos R$ você tem na carteira?</p>
+    <p><input type="number" name="treal" id="treal"> <input type="button" id="convert" value="Converter" onclick="converter()"></p>
+    <div id="texto"></div>
+
+    <script>
+        let msg = document.getElementById('texto')
+        let real = document.getElementById('treal')
+
+        function converter(){
+
+        if(real.value.length == 0 || real.value < 0){
+            msg.innerHTML = 'Dados inválidos'
+        } else{
+            let dolar = Number(real.value)
+            dolar = dolar*4.81
+            dolar = dolar.toFixed(2)
+            msg.innerHTML = ` Você tem o equivalente a U$ ${dolar}.`
+            real.value = ''
+        }
+    }
+
+        
+    </script>    
+</body>
+</html>

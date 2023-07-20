@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço mudou</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #calcular:hover{
+            background-color: darkred;
+            color: white;
+        }
+        div{
+            margin: 20px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mudança de preço</h1>
+    <p>Qual era o preço anterior do produto? <input type="number" name="pant" id="pant"></p>
+    <p>Qual é o preço atual do produto? <input type="number" name="patu" id="patu"></p>
+    <input type="button" value="Calcular" id="calcular" onclick="calculo()">
+    <div id="texto"></div>
+
+    <script>
+        let msg = document.getElementById('texto')
+        let anterior = document.getElementById('pant')
+        let atual = document.getElementById('patu')
+
+        function calculo(){
+            if(anterior.value.length == 0 || atual.value.length == 0 || anterior.value < 0 || atual.value < 0){
+                msg.innerHTML = `Valor inválido`
+            } else {
+                msg.innerHTML = `<strong>Analisando os valores informados</strong><br>`
+                let ant = Number(anterior.value)
+                let atu = Number(atual.value)
+
+                if(ant > atu){
+                    let diferenca = ant - atu
+                    let porc = diferenca*100/ant
+                    diferenca = diferenca.toFixed(2)
+                    ant = ant.toFixed(2)
+                    atu = atu.toFixed(2)
+                    porc = porc.toFixed(2)
+            
+                    msg.innerHTML += `O produto custava R$ ${ant} e agora custa R$ ${atu}.<br>`
+                    msg.innerHTML += `Hoje o produto está mais barato.<br>`
+                    msg.innerHTML += `O preço caiu R$ ${diferenca} em relação ao preço anterior.<br>`
+                    msg.innerHTML += `Uma variação de ${porc}% para baixo.`
+                    anterior.value = ''
+                    atual.value = ''
+
+                } else{
+                    let diferenca = atu - ant
+                    let porc = diferenca*100/ant
+                    diferenca = diferenca.toFixed(2)
+                    ant = ant.toFixed(2)
+                    atu = atu.toFixed(2)
+                    porc = porc.toFixed(2)
+
+                    msg.innerHTML += `O produto custava R$ ${ant} e agora custa R$ ${atu}.<br>`
+                    msg.innerHTML += `Hoje o produto está mais caro.<br>`
+                    msg.innerHTML += `O preço subiu R$ ${diferenca} em relação ao preço anterior.<br>`
+                    msg.innerHTML += `Uma variação de ${porc}% para cima.`
+                    anterior.value = ''
+                    atual.value = ''
+                }
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

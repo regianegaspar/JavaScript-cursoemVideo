@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula de Bháskara</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            width: 120px;
+        }
+        #calc:hover{
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resolvendo Bháskara</h1>
+    <p>Digite os valores dos coeficientes da equação do segundo grau:</p>
+    <p><input type="number" name="ta" id="ta" placeholder="a"> x² + <input type="number" name="tb" id="tb" placeholder="b"> x + <input type="number" name="tc" id="tc" placeholder="c"> = 0</p>
+    <input type="button" id="calc" value="Calcular">
+    <div id="texto"></div>
+
+    <script>
+        let msg = document.getElementById('texto')
+        let a = document.getElementById('ta')
+        let b = document.getElementById('tb')
+        let c = document.getElementById('tc')
+        let clic = document.getElementById('calc')
+
+        clic.addEventListener('click', calcular)
+
+        function calcular (){
+            if(a.value.length == 0){
+                msg.innerHTML = 'O coeficiente a não pode ser nulo'
+            } else{
+                let ca = Number(a.value)
+                let cb = Number(b.value)
+                let cc = Number(c.value)
+                let delta = cb*cb - 4*ca*cc
+                msg.innerHTML = `A equação atual é (${ca})x² + (${cb})x + (${cc}) = 0<br>`
+                msg.innerHTML += `O cálculo realizado será &Delta; = (${cb})² - 4 . (${ca}) . (${cc})<br>`
+                msg.innerHTML += ` O valor calculado foi &Delta; = ${delta}<br>`
+                a.value = 'a'
+                b.value = 'b'
+                c.value = 'c'
+            }
+
+        
+        }
+    </script>
+</body>
+</html>

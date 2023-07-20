@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 40px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        input:hover{
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Desafio das Mensagens</h1>
+    <p>Clique em um dos botões.</p>
+    <div>
+        <input type="button" value="Botão 1" id="bt1">
+        <input type="button" value="Botão 2" id="bt2">
+        <input type="button" value="Botão 3" id="bt3">
+    </div>
+    <p id="texto"></p>
+    <script>
+        let bt1 = document.getElementById('bt1')
+        let bt2 = document.getElementById('bt2')
+        let bt3 = document.getElementById('bt3')
+        let msg = document.getElementById('texto')
+
+        bt1.addEventListener('click', botao1)
+        bt2.addEventListener('click', botao2)
+        bt3.addEventListener('click', botao3)
+
+        function botao1(){
+            msg.innerText = 'Você clicou no botão 1.'
+        }
+        function botao2(){
+            msg.innerText = 'Você clicou no botão 2.'
+        }
+        function botao3(){
+            msg.innerText = 'Você clicou no botão 3.'
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas vindas</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 5px;
+            border-radius: 15px;
+            font-size: 18px;
+        }
+        #botao1:hover, #botao2:hover{
+            background-color: darkred;
+            color: white;
+        }
+        #texto2{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Boas vindas</h1>
+    <p>Qual é o seu nome?</p>
+    <p><input type="text" name="nome" id="nome"> <input type="button" id="botao1" value="Inicie o desafio" onclick="nome()"></p>
+    <p id="tidade"></p>
+    <p id="texto2" ><input type="text" name="idade" id="idade"> <input type="button" id="botao2" value="Enviar"></p>
+    <p id="texto"></p>
+
+    <script>
+        let tidade = document.getElementById('tidade')
+        let idade = document.getElementById('idade')
+        let tnome = document.getElementById('nome')
+        let botao2 = document.getElementById('botao2')
+        let texto2 = document.getElementById('texto2')
+        let texto = document.getElementById('texto')
+
+
+        function nome(){
+            if(tnome.value.length != 0){
+                texto.innerHTML = ''
+                tidade.innerHTML += `Olá, ${tnome.value}! Quantos anos você tem?`
+                texto2.style.display = 'block'
+            }else{
+                texto.innerHTML = 'Nome inválido'
+            }
+        }
+        botao2.addEventListener('click', clicou)
+        function clicou(){
+            if(idade.value.length != 0 && idade.value > 0){
+                texto.innerHTML = ''
+                texto.innerHTML = `Acabei de conhecer ${tnome.value}, que tem ${idade.value} anos de idade!`
+            } else{
+                texto.innerHTML = 'Idade inválida'
+            }
+        }
+    </script>
+    
+</body>
+</html>

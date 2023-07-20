@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(0, 0, 139, 0.277);
+            font-size: 20px;
+            padding: 10px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #calcular:hover{
+            background-color: darkblue;
+            color: white;
+        }
+        #rep{
+            color:goldenrod;
+            background-color: rgba(255, 255, 0, 0.276);
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do aluno</h1>
+    <p>Nome do aluno: <input type="text" name="tnome" id="tnome" placeholder="Nome"></p>
+    <p>Primeira nota: <input type="number" name="tpri" id="tpri" placeholder="Nota 1 - de 0 a 10"></p>
+    <p>Segunda nota: <input type="number" name="tseg" id="tseg" placeholder="Nota 2 - de 0 a 10"></p>
+    <input type="button" value="Calcular" id="calcular" onclick="calculo()">
+    <div id="texto"></div>
+
+    <script>
+        let msg = document.getElementById('texto')
+        let nota1 = document.getElementById('tpri')
+        let nota2 = document.getElementById('tseg')
+        let nome = document.getElementById('tnome')
+
+        function calculo(){
+            if(nome.value.length == 0 || nota1.value.length == 0 || nota2.value.length == 0 || nota1.value < 0 || nota2.value < 0){
+                msg.innerHTML = 'Dados inválidos'
+            } else {
+                nome = nome.value
+                nota1 = Number(nota1.value)
+                nota2 = Number(nota2.value)
+
+                msg.innerHTML = `Analisando a situação de ${nome}<br>`
+                let s = nota1 + nota2
+                let m = s/2
+                let media = m.toFixed(1)
+                let n1 = nota1.toFixed(1)
+                let n2 = nota2.toFixed(1)
+            
+                msg.innerHTML += `Com as notas ${n1} e ${n2}, a média é ${media}<br>`
+                // let st = document.querySelectorAll('strong')
+
+                if(media < 3){
+                    // st.setAtribute('id', 'rep')
+                    // st.appendChild(strong)
+                    msg.innerHTML += `Com média abaixo de 3.0, o aluno está <strong style = 'background-color: rgba(180, 19, 19, 0.303); color: red;'>REPROVADO</strong>.`
+                } else if(media <=6){
+                    msg.innerHTML += `Com média entre 3.0 e 6.0, o aluno está em <strong style = 'background-color:rgba(255, 255, 0, 0.276); color:goldenrod;'>RECUPERAÇÃO</strong/>.`
+                } else {
+                    msg.innerHTML += `Com média acima de 6.0, o aluno está <strong style = 'background-color: rgba(33, 220, 33, 0.456); color: green;'>APROVADO</>.`
+                }
+        
+            }
+        
+        }
+        
+    </script>
+</body>
+</html>

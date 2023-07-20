@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas vindas</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #botao:hover{
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Antes e depois</h1>
+    <p>Digite um número inteiro qualquer: <input type="number" name="tn1" id="tn1"> <input id="botao" type="button" value="Enviar"></p>
+    <p id="texto"></p>
+
+    <script>
+        let num = document.getElementById('tn1')
+        let msg = document.getElementById('texto')
+        let envio = document.getElementById('botao')
+        
+
+        envio.addEventListener('click', clicou)
+        function clicou(){
+            if(num.value.length == 0){
+                msg.innerHTML = 'Número inválido'
+            }else {
+                let numero = Number.parseInt(num.value)
+                msg.innerHTML = `O número digitado foi o ${numero}.<br>`
+                msg.innerHTML += `Antes do ${numero}, temos o número inteiro ${numero - 1}.<br>Depois do ${numero}, temos o número inteiro ${numero + 1}.`     
+                num.value = ''     
+            }
+        }
+    </script>
+</body>
+</html>

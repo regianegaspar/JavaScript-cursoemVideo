@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de temperaturas</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #clique:hover{
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Converspr de temperaturas</h1>
+    <p>Digite uma temperatura em ºC (Celsius) <input type="number" name="tcel" id="tcel"> <input type="button" value="OK" id="clique" onclick="clicou()"></p>
+    <div id="texto"></div>
+
+    <script>
+        let msg = document.getElementById('texto')
+        let temperatura = document.getElementById('tcel')
+
+        function clicou(){
+            if(temperatura.value.length == 0){
+                msg.innerHTML = 'Dados inválidos'
+            } else {
+                let temp = Number(temperatura.value)
+                msg.innerHTML = `A temperatura de ${temp}ºC, corresponde a...<br>`
+                let kel = temp + 273
+                msg.innerHTML += `${kel}ºK (Kelvin)<br>`
+                let far = temp*1.8 + 32
+                msg.innerHTML += `${far}ºF (Fahrenheit)`
+                temperatura.value = ``
+            }
+        }
+    </script>
+</body>
+</html>

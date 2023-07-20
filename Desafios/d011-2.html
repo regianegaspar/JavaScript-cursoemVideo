@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ano Bissexto</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #clic:hover{
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ano Bissexto</h1>
+    <p>Qual é o ano que você deseja verificar?</p>
+    <p><input type="number" name="tano" id="tano"><input type="button" id="clic" value="Verificar"></p>
+    <div id="texto"></div>
+
+    <script>
+        let msg = document.getElementById('texto')
+        let ano = document.getElementById('tano')
+        let clic = document.getElementById('clic')
+
+        clic.addEventListener('click', clicou)
+
+        function clicou(){
+            if (ano.value.length == 0 || ano.value < 0){
+                msg.innerHTML = 'Dados inválidos'
+            } else {
+                let cond = Number(ano.value)
+                msg.innerHTML = `Analisando o ano de ${cond}...<br>`
+
+                if(cond % 4 == 0){
+                    msg.innerHTML += `O ano ${cond} É BISSEXTO`
+                } else{
+                    msg.innerHTML += `O ano de ${cond} NÃO É BISSEXTO`
+                }
+            }
+        }
+
+        
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de medidas</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 8px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #clique:hover{
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <p>Digite uma distância em metros (m) <input type="number" name="tnum" id="tnum" placeholder="Número positivo"><input type="button" value="Enviar" id="clique" onclick="clicou()"></p>
+    <div id="texto"></div>
+
+    <script>
+        function clicou(){
+            let numero = document.getElementById('tnum')
+            let num = Number(numero.value)
+            let msg = document.getElementById('texto')
+
+            if(numero.value.length == 0 || numero.value < 0){
+                msg.innerHTML = 'Dados inválidos'
+            } else{
+                msg.innerHTML = (`A distância de ${num} metros, corresponde a...<br>`)
+                msg.innerHTML += `${num*0.001} quilômetros (Km)<br>`
+                msg.innerHTML += `${num*0.01} hectômetros (Hm)<br>`
+                msg.innerHTML += `${num*0.1} decâmetros (Dam)<br>`
+                msg.innerHTML += `${num*10} decímetros (dm)<br>`
+                msg.innerHTML += `${num*100} centímetros (cm)<br>`
+                msg.innerHTML += `${num*1000} milímetros (mm)`
+                numero.value = ''
+            }
+        }
+    </script>
+    
+</body>
+</html>

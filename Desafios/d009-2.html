@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajustar salário</title>
+    <style>
+        body{
+            margin: 50px;
+            background-color: rgba(83, 6, 6, 0.257);
+            font-size: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        #calc:hover{
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajuste salarial</h1>
+    <p>Qual é o nome do funcionário? <input type="text" name="tnome" id="tnome"></p>
+    <p>Qual é o salário dele? <input type="number" name="tsal" id="tsal"></p>
+    <p>O salário vai ser reajustado em qual porcentagem? <input type="number" name="tporc" id="tporc"></p>
+    <input type="button" id="calc" value="Calcular">
+    <div id="texto"></div>
+
+    <script>
+        let msg = document.getElementById('texto')
+        let nome = document.getElementById('tnome')
+        let salario = document.getElementById('tsal')
+        let porcentagem = document.getElementById('tporc')
+        let clic = document.getElementById('calc')
+
+        clic.addEventListener('click', calculo)
+
+        function calculo(){
+            if(nome.value.length == 0 || salario.value.length == 0 || porcentagem.value.length == 0 || salario.value <=0 || porcentagem.value <=0){
+                msg.innerHTML = 'Dados inválidos'
+            } else {
+                let atual = Number(salario.value)
+                let porc = Number(porcentagem.value)
+                let aumento = atual * porc / 100
+                let novo = atual + aumento
+                aumento = aumento.toFixed(2)
+                novo = novo.toFixed(2)
+                atual = atual.toFixed(2)
+                porc = porc.toFixed(2)
+
+                msg.innerHTML = `${nome.value} recebeu um aumento salarial!<br>`
+                msg.innerHTML += `O salário atual era R$ ${atual}<br>`
+                msg.innerHTML += `Com um aumento de ${porc}%, o salário vai aumentar R$ ${aumento} no próximo mês.<br>`
+                msg.innerHTML += `E a partir daí, ${nome.value} vai passar a ganhar R$ ${novo}.`
+                nome.value = ''
+                salario.value = ''
+                porcentagem.value = ''
+            }
+
+
+        
+        }
+    </script>
+</body>
+</html>
